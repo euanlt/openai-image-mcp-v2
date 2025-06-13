@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "bin": {
-    "openai-gpt-image-mcp": "./dist/index.js"
+    "openai-gpt-image-mcp": "./bin/openai-gpt-image-mcp"
   },
   "files": [
     "dist/**/*",
+    "bin/**/*",
     "package.json",
     "README.md",
     "LICENSE"

@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+const path = require('path');
+const { spawn } = require('child_process');
+
+// Get the directory where this script is located
+const binDir = __dirname;
+// Go up one level to the package root, then into dist
+const scriptPath = path.join(binDir, '..', 'dist', 'index.js');
+
+// Spawn the actual script with all arguments passed through
+const child = spawn('node', [scriptPath, ...process.argv.slice(2)], {
+  stdio: 'inherit'
+});
+
+// Forward exit code
+child.on('close', (code) => {
+  process.exit(code);
+});
+
+// Handle errors
+child.on('error', (err) => {
+  console.error('Failed to start MCP server:', err);
+  process.exit(1);
+});
