@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+require('../dist/minimal-test.js');
