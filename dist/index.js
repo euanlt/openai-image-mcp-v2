@@ -44,14 +44,24 @@ console.log("🔧 Version: FIXED-DIST-FILES-v1.0");
 console.log("📁 Running from:", __filename);
 console.log("🌍 Environment:", process.env.RENDER ? "TypingMind/Render" : "Local");
 console.log("📦 Node version:", process.version);
+// STEP-BY-STEP DIAGNOSTIC LOGGING
+console.log("STEP 1: Basic Node.js functionality works");
+console.log("STEP 2: About to suppress warnings...");
 // Suppress all Node.js warnings (including deprecation)
 process.emitWarning = () => { };
+console.log("STEP 3: Warnings suppressed successfully");
+console.log("STEP 4: About to import modules...");
 const mcp_js_1 = require("@modelcontextprotocol/sdk/server/mcp.js");
+console.log("STEP 5: MCP Server imported successfully");
 const stdio_js_1 = require("@modelcontextprotocol/sdk/server/stdio.js");
+console.log("STEP 6: StdioServerTransport imported successfully");
 const zod_1 = require("zod");
+console.log("STEP 7: Zod imported successfully");
 const openai_1 = require("openai");
+console.log("STEP 8: OpenAI imported successfully");
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+console.log("STEP 9: Built-in modules (fs, path) imported successfully");
 // Function to load environment variables from a file
 const loadEnvFile = (filePath) => {
     try {
@@ -76,6 +86,7 @@ const loadEnvFile = (filePath) => {
     }
 };
 // Parse command line arguments for --env-file
+console.log("STEP 10: About to parse command line arguments...");
 const cmdArgs = process.argv.slice(2);
 const envFileArgIndex = cmdArgs.findIndex(arg => arg === "--env-file");
 if (envFileArgIndex !== -1 && cmdArgs[envFileArgIndex + 1]) {
@@ -86,7 +97,9 @@ if (envFileArgIndex !== -1 && cmdArgs[envFileArgIndex + 1]) {
 else {
     console.log("No environment file provided");
 }
+console.log("STEP 11: About to start async main function...");
 (async () => {
+    console.log("STEP 12: Inside async function, creating MCP server...");
     const server = new mcp_js_1.McpServer({
         name: "openai-gpt-image-mcp",
         version: "1.0.0"
