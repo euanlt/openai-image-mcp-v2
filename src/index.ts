@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 
+// IMMEDIATE VERSION LOGGING - BEFORE ANYTHING ELSE
+console.log("🚀 OpenAI GPT Image MCP Starting...");
+console.log("📅 Timestamp:", new Date().toISOString());
+console.log("🔧 Version: FIXED-DIST-FILES-v1.0");
+console.log("📁 Running from:", __filename);
+console.log("🌍 Environment:", process.env.RENDER ? "TypingMind/Render" : "Local");
+console.log("📦 Node version:", process.version);
+
 // Suppress all Node.js warnings (including deprecation)
 (process as any).emitWarning = () => { };
 

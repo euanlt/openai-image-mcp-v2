@@ -37,6 +37,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// IMMEDIATE VERSION LOGGING - BEFORE ANYTHING ELSE
+console.log("🚀 OpenAI GPT Image MCP Starting...");
+console.log("📅 Timestamp:", new Date().toISOString());
+console.log("🔧 Version: FIXED-DIST-FILES-v1.0");
+console.log("📁 Running from:", __filename);
+console.log("🌍 Environment:", process.env.RENDER ? "TypingMind/Render" : "Local");
+console.log("📦 Node version:", process.version);
 // Suppress all Node.js warnings (including deprecation)
 process.emitWarning = () => { };
 const mcp_js_1 = require("@modelcontextprotocol/sdk/server/mcp.js");
