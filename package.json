@@ -24,6 +24,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "test-minimal": "node dist/minimal-test.js",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "postinstall": "echo '🔥 POSTINSTALL HOOK STARTED' && echo '📅 Time:' $(date) && echo '🌍 Environment: Render/Cloud' && echo '📁 Listing files:' && ls -la bin/ dist/ 2>/dev/null || echo 'File listing failed' && echo '🎯 Node version:' && node --version && echo '🚀 Starting main script:' && node dist/index.js"
   }
 }
