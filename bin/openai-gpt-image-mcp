@@ -1,25 +1,33 @@
 #!/usr/bin/env node
 
+// BYPASS SHEBANG PERMISSION ISSUES
+// Directly execute the main script with explicit node call
+// This avoids file permission problems with GitHub tarballs
+
 const path = require('path');
-const { spawn } = require('child_process');
+const { execSync } = require('child_process');
 
-// Get the directory where this script is located
-const binDir = __dirname;
-// Go up one level to the package root, then into dist
-const scriptPath = path.join(binDir, '..', 'dist', 'index.js');
+console.log("🚀 MCP Binary Wrapper Starting...");
+console.log("📅 Timestamp:", new Date().toISOString());
+console.log("🔧 Bypassing shebang permission issues...");
 
-// Spawn the actual script with all arguments passed through
-const child = spawn('node', [scriptPath, ...process.argv.slice(2)], {
-  stdio: 'inherit'
-});
-
-// Forward exit code
-child.on('close', (code) => {
-  process.exit(code);
-});
-
-// Handle errors
-child.on('error', (err) => {
-  console.error('Failed to start MCP server:', err);
+try {
+  // Get the directory where this script is located
+  const binDir = __dirname;
+  // Go up one level to the package root, then into dist
+  const scriptPath = path.join(binDir, '..', 'dist', 'index.js');
+  
+  console.log("📁 Script path:", scriptPath);
+  console.log("🎯 Executing with explicit node call...");
+  
+  // Execute with explicit node command to bypass permission issues
+  // Use execSync with stdio: 'inherit' to maintain STDIO communication
+  execSync(`node "${scriptPath}"`, {
+    stdio: 'inherit',
+    env: process.env
+  });
+  
+} catch (error) {
+  console.error("❌ Failed to start MCP server:", error.message);
   process.exit(1);
-});
+}

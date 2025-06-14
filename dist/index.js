@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+// SHEBANG REMOVED - Called explicitly with node to avoid permission issues
 console.log("🔥🔥🔥 TEMPORARY TEST VERSION RUNNING 🔥🔥🔥");
 console.log("📅 Started at:", new Date().toISOString());
 console.log("🎯 If you see this, TypingMind is using the NEW repository!");
