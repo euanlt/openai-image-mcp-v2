@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+// IMMEDIATE PROCESS LOGGING - BEFORE ANY IMPORTS
+process.stdout.write("🔥 BINARY PROCESS STARTED - PID: " + process.pid + "\n");
+process.stdout.write("📅 BINARY START TIME: " + new Date().toISOString() + "\n");
+process.stdout.write("🌍 BINARY ENVIRONMENT: " + (process.env.RENDER ? "Render" : "Local") + "\n");
+
 // BYPASS SHEBANG PERMISSION ISSUES
 // Directly execute the main script with explicit node call
 // This avoids file permission problems with GitHub tarballs
